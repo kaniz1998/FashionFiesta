@@ -1,0 +1,38 @@
+﻿@model IEnumerable<MVC_Project.Models.DressCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    body {
+        background-image: url("/Images/Brandslogo.jpg");
+    }
+</style>
+<h2 class="display-4 text-decoration-underline">Category List</h2>
+
+<p class="d-flex justify-content-end">
+    <a href="@Url.Action("Create","DressCategories")" class="btn btn-outline-dark"><i class="fa fa-plus-square"></i> Add New Brand</a>
+
+</p>
+<table class="table table-bordered table-striped table-hover">
+    <thead class="text-center">
+        <tr>
+            <th>Category Name</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td class="text-center">
+                    <a href="@Url.Action("Edit", "Brands", new {id=item.DressCategoryID})" class="btn btn-success btn-sm">Edit</a> |
+                    <a href="@Url.Action("Delete", "Brands", new {id=item.DressCategoryID})" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

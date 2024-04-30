@@ -1,0 +1,39 @@
+﻿@model MVC_Project.Models.DressCategory
+
+@{
+    ViewBag.Title = "Delete";
+}
+<style>
+    body {
+        background-color: gainsboro;
+    }
+</style>
+<h2 class="display-4 text-decoration-underline">Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.CategoryName)</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Html.DisplayFor(model => model.CategoryName)</td>
+                <td>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div>
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </div>
+                    }
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    @Html.ActionLink("Back to List", "Index")
+</div>

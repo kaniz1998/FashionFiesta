@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    body {
+        background-image: url("/Images/wp.jpg");
+        color: white;
+    }
+</style>
+<p class="text-center text-decoration-underline" style="font-size:50px;">
+    Welcome To Fashion-Fiesta
+</p>
+
+<h2 class="display-4 text-decoration-underline text-center">Aggregiate calculation on Brands & Price</h2>
+<table class="table table-bordered table-striped table-sm">
+    <thead>
+        <tr>
+            <th>Count Of Brands</th>
+            <th>Min Price</th>
+            <th>Max Price</th>
+            <th>Avg TotalPrice</th>
+            <th>Sum of Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@ViewBag.NumberOfBrands</td>
+            <td>@ViewBag.MinimumPrice</td>
+            <td>@ViewBag.MaximumPrice</td>
+            <td>@ViewBag.PriceAvg</td>
+            <td>@ViewBag.PriceSum</td>
+        </tr>
+    </tbody>
+</table>

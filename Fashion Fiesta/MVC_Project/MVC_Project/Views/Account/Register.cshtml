@@ -1,0 +1,47 @@
+﻿@model MVC_Project.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<style>
+    body{
+       background-color:gainsboro;
+    }
+</style>
+<main aria-labelledby="title">
+    <h2 id="title" class="display-4 text-decoration-underline text-center">@ViewBag.Title</h2>
+
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <h3 class="text-decoration-underline" style="font-weight:bold;">Create Your Own Space By Reister Now!</h3>
+        @Html.ValidationSummary("", new { @class = "text-danger" })
+        <div class="row mb-2">
+            @Html.LabelFor(m => m.Email, new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-2">
+            @Html.LabelFor(m => m.Password, new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-2">
+            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 col-form-label" })
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="offset-md-2 col-md-10">
+                <input type="submit" value="Register" class="btn btn-dark" />
+            </div>
+        </div>
+    }
+</main>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
